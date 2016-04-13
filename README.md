@@ -5,9 +5,12 @@ http://jqtree-spring-mvc-gae-example.appspot.com/
 ###Main technologies implemented:
 
 <ul>
-  <li>jqTree <a href="http://mbraak.github.io/jqTree/">http://mbraak.github.io/jqTree/</a></li>
-  <li>Spring MVC <a href="http://projects.spring.io/spring-framework/">http://projects.spring.io/spring-framework/</a></li>
-  <li>Google App Engine API <a href="https://developers.google.com/appengine/docs/java/">https://developers.google.com/appengine/docs/java/</a></li>
+    <p>Back : Java(Spring) (ver 3.2.11.RELEASE)</p>
+		<p>Front : AngularJs / Html / Css</p>
+		<p>Design : Angular Mamerial Design</p>
+		<p>Server : Google App Engine</p>
+		<p>Database : Googla App Engine Datastroe</p>
+		<p>ETC : Maven Mybatis + Spring Security</p>
 </ul>                        
 
 Version 1 Stable
