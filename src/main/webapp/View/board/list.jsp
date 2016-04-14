@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div ng-init="getBoardList(1,3)">
+<div ng-init="getBoardList()">
 
 	<md-list> 
 		<md-subheader class="md-no-sticky">

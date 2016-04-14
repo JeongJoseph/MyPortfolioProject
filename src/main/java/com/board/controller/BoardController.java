@@ -41,8 +41,9 @@ public class BoardController {
 	}
 
 	@RequestMapping( value="/getBoardList", method = RequestMethod.POST, produces = "application/json")
-	public @ResponseBody List<Board> getBoardList(@RequestBody ListNum lnum) {
-		return boardService.getList(lnum);
+//	public @ResponseBody List<Board> getBoardList(@RequestBody ListNum lnum) {
+	public @ResponseBody List<Board> getBoardList(@RequestBody int page) {
+		return boardService.getList(page);
 	}
 	
 	@RequestMapping( value="/getBoardDetail", method = RequestMethod.POST, produces = "application/json")

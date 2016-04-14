@@ -1,6 +1,7 @@
 package com.board.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,14 +29,26 @@ public class BoardDAODatastore implements BoardDAO{
     }
     
     @Override
-    public List<Board> getBoardList(ListNum lNum){
+//    public List<Board> getBoardList(ListNum lNum){
+	public List<Board> getBoardList(int page){
     	Query q = new Query("Board");
 		PreparedQuery pq = datastoreService.prepare(q);
-		List<Entity> list =  pq.asList(FetchOptions.Builder.withDefaults());
+		int listSize = pq.countEntities();
+		int startNum = page * 10 - 10;
+    	int endNum = page * 10 - 1;
+
+		if (listSize <= startNum) {
+			return null;
+			
+		} else if (listSize < endNum) {
+			endNum = listSize;
+		}
+		
 		
     	List<Board> returnList = new ArrayList<Board>();
-    	for (int i=lNum.getStartNum() ; i<lNum.getEndNum() ; i++) {
-    		System.out.println(list.get(i));
+    	List<Entity> list =  pq.asList(FetchOptions.Builder.withDefaults());
+    	
+    	for (int i=startNum;i<endNum;i++) {
     		Board br = new Board(list.get(i));
     		returnList.add(br);
     	}
@@ -50,9 +63,17 @@ public class BoardDAODatastore implements BoardDAO{
 		Board br = new Board(result);
     	return br;
 	}
-	
+    
     @Override
     public void insertBoard (Board board) {
+    	Query q = new Query("Board");
+		PreparedQuery pq = datastoreService.prepare(q);
+		int listSize = pq.countEntities() + 1;
+		
+    	System.out.println(board);
+    	board.setWriteDate(new Date(System.currentTimeMillis()));
+    	board.setUpdateDate(new Date(System.currentTimeMillis()));
+    	board.setId(listSize);
     	datastoreService.put(board.convertEntity());
     }
     

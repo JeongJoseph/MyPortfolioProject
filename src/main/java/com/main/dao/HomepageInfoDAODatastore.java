@@ -38,35 +38,29 @@ public class HomepageInfoDAODatastore implements HomepageInfoDAO{
 	
 	@Override
     public HomepageInfo getInfo(){
-//		Entity HomePageInfo = new Entity("HomePageInfo");
-//		HomePageInfo.setProperty("address", "173, Gwajeong-ro, Yeonje-gu, Busan, Korea");
-//		HomePageInfo.setProperty("branch", "Busan");
-//		HomePageInfo.setProperty("coRegNum", "12345-67-890");
-//		HomePageInfo.setProperty("companyID", "Captain's Company");
-//		HomePageInfo.setProperty("dutyHours", "Mon~Fri 13:00~20:00");
-//		HomePageInfo.setProperty("representative", "Joseph Jeong");
-//		datastoreService.put(HomePageInfo);
-		
-							
-//		
-//		
 //		ArrayList<String> favoriteFruit = new ArrayList<String>();
 //		favoriteFruit.add("Pear");
 //		favoriteFruit.add("Apple");
 //		employee.setProperty("favoriteFruit", favoriteFruit);
-//		
-//		
 //		en.setProperty("HomePageInfo", HomePageInfo);
 //		datastoreService.put(en);
-//		
 //		datastoreService.put(HomePageInfo);
-//	    
+
 
 		Query q = new Query("HomePageInfo");
 		PreparedQuery pq = datastoreService.prepare(q);
 		Entity result = pq.asSingleEntity();
-		HomepageInfo homeInfo = new HomepageInfo(result);
-		
+		if (result == null) {
+			Entity HomePageInfo = new Entity("HomePageInfo");
+			HomePageInfo.setProperty("address", "173, Gwajeong-ro, Yeonje-gu, Busan, Korea");
+			HomePageInfo.setProperty("branch", "Busan");
+			HomePageInfo.setProperty("coRegNum", "12345-67-890");
+			HomePageInfo.setProperty("companyID", "Captain's Company");
+			HomePageInfo.setProperty("dutyHours", "Mon~Fri 13:00~20:00");
+			HomePageInfo.setProperty("representative", "Joseph Jeong");
+			datastoreService.put(HomePageInfo);			
+		}
+		HomepageInfo homeInfo = new HomepageInfo(result);		
 		return homeInfo;
     }
 	

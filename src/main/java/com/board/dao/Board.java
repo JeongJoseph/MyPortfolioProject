@@ -1,5 +1,7 @@
 package com.board.dao;
 
+import java.util.Date;
+
 import com.google.appengine.api.datastore.Entity;
 
 /**
@@ -12,8 +14,8 @@ public class Board {
 	String userId;
 	String title;
 	String detail;
-	String writeDate;
-	String updateDate;
+	Date writeDate;
+	Date updateDate;
 	boolean isSecurity;
 	boolean isDelete;
 	
@@ -21,8 +23,8 @@ public class Board {
 		super();
 	}
 
-	public Board(int id, String passwd, String userId, String title, String detail, String writeDate,
-			String updateDate, boolean isSecurity, boolean isDelete) {
+	public Board(int id, String passwd, String userId, String title, String detail, Date writeDate,
+			Date updateDate, boolean isSecurity, boolean isDelete) {
 		super();
 		this.id = id;
 		this.passwd = passwd;
@@ -42,8 +44,8 @@ public class Board {
 		this.userId = (String) en.getProperty("userId");
 		this.title = (String) en.getProperty("title");
 		this.detail = (String) en.getProperty("detail");
-		this.writeDate = (String) en.getProperty("writeDate");
-		this.updateDate = (String) en.getProperty("updateDate");
+		this.writeDate = (Date) en.getProperty("writeDate");
+		this.updateDate = (Date) en.getProperty("updateDate");
 		this.isSecurity = (boolean) en.getProperty("isSecurity");
 		this.isDelete = (boolean) en.getProperty("isDelete");
 	}
@@ -99,16 +101,16 @@ public class Board {
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
-	public String getWriteDate() {
+	public Date getWriteDate() {
 		return writeDate;
 	}
-	public void setWriteDate(String writeDate) {
+	public void setWriteDate(Date writeDate) {
 		this.writeDate = writeDate;
 	}
-	public String getUpdateDate() {
+	public Date getUpdateDate() {
 		return updateDate;
 	}
-	public void setUpdateDate(String updateDate) {
+	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
 	public boolean isSecurity() {

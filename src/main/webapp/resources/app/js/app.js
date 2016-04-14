@@ -719,14 +719,19 @@ var myApp =
 			
 				
 		}; 
-		$scope.getBoardList = function (startNum , endNum) {
-			listNum = { "startNum" : startNum , "endNum" : endNum };
-			$http.post('getBoardList',listNum).success(function(data) {
+		$scope.dateConvert = function (date) {
+			var conDate = new Date(date);
+			return (conDate.getFullYear() + "-" + (conDate.getMonth() + 1) + "-" + conDate.getDate());
+			
+		}
+		$scope.getBoardList = function () {
+			$scope.page=1;
+//			listNum = { "startNum" : startNum , "endNum" : endNum };
+			$http.post('getBoardList',$scope.page).success(function(data) {
 				$scope.board=data;
-				
 				angular.forEach($scope.board, function(value, key) {
-					value.writeDate = value.writeDate.substr(2,8);
-					value.updateDate = value.updateDate.substr(2,8);
+					value.writeDate = $scope.dateConvert(value.writeDate);
+					value.updateDate = $scope.dateConvert(value.updateDate);
 				});
 			});	
 		};
@@ -741,8 +746,8 @@ var myApp =
 		$scope.getBoardDetail = function () {
 			if ($routeParams.boardId != undefined) {
 				$http.post('getBoardDetail',$routeParams.boardId).success(function(data) {
-//					data.writeDate = data.writeDate.substr(2,8);
-//					data.updateDate = data.updateDate.substr(2,8);
+					data.writeDate = $scope.dateConvert(data.writeDate);
+					data.updateDate = $scope.dateConvert(data.updateDate);					
 					$scope.boardDetail= data;
 				});	
 			} else {

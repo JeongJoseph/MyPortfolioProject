@@ -20,8 +20,9 @@ public class BoardServiceImpl implements BoardService{
     private BoardDAO boarddao;
 	
 	@Override
-	public List<Board> getList(ListNum lnum) {
-		return boarddao.getBoardList(lnum);
+//	public List<Board> getList(ListNum lnum) {
+	public List<Board> getList(int page) {
+		return boarddao.getBoardList(page);
 	}
 	@Override
 	public Board getBoardDetail(int boardId){

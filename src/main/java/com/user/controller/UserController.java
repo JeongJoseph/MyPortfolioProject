@@ -29,13 +29,12 @@ public class UserController {
 //	}
 //	
 	@RequestMapping( value="/checkUserID", method = RequestMethod.POST, produces = "application/json")
-	public @ResponseBody int userCheckId(@RequestBody User user) {
-//		if (userService.checkUserID(user)==null){
-//			return 0;
-//		} else {
-		System.out.println(3333);
+	public @ResponseBody int userCheckId(@RequestBody User user) { // TODO . ID Check는 app.js에서 
+		if (userService.checkUserID(user)==null){
 			return 0;
-//		}
+		} else {
+			return 1;
+		}
 	}
 	
 
