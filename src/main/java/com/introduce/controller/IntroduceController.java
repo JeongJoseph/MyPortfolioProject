@@ -34,7 +34,6 @@ public class IntroduceController {
 	
 	@RequestMapping( value="/getMenusBar", method = RequestMethod.POST, produces = "application/json")
 	public @ResponseBody menusBar getMenusBar() {
-		System.out.println(homeService.getMenusBar());
 		return homeService.getMenusBar();
 	}
 	

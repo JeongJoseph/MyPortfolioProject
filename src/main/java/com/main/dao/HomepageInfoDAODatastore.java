@@ -45,15 +45,13 @@ public class HomepageInfoDAODatastore implements HomepageInfoDAO{
 	@Override
     public HomepageInfo getInfo(){
 		// initialization
-		if (select("Menus") == null) { 
+		if (select("Menus") == null || select("Menus").isEmpty()) { 
 			menuInit();
 		}
-		List<Entity> result = select("HomePageInfo");
-		// initialization
-		if (select("HomePageInfo") == null) {
+		if (select("HomePageInfo") == null  || select("HomePageInfo").isEmpty()) {
 			homePageInfoInit();
 		}
-		
+		List<Entity> result = select("HomePageInfo");
 		HomepageInfo homeInfo = new HomepageInfo(result.get(0));		
 		return homeInfo;
     }
