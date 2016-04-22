@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.board.dao.Board;
 import com.board.dao.BoardDAO;
 import com.board.dao.ListNum;
+import com.main.dao.menusBar;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -37,6 +38,11 @@ public class BoardServiceImpl implements BoardService{
 	public void deleteBoard(Board board) {
 		boarddao.deleteBoard (board);
 	}
+	
+	public int getBoardSize() {
+		return boarddao.getBoardSize();
+	}
+	
 	
 	
 }

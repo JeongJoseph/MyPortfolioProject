@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.board.dao.Board;
 import com.board.dao.ListNum;
+import com.main.dao.menusBar;
 
 public interface BoardService {
 
@@ -15,4 +16,6 @@ public interface BoardService {
 
 	public abstract void insertBoard(Board board);
 	public abstract void deleteBoard(Board board);
+	public abstract int getBoardSize();
+	
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.main.dao.HomepageInfo;
+import com.main.dao.menusBar;
 import com.main.service.HomepageInfoService;
 
 @Controller
@@ -30,6 +31,14 @@ public class IntroduceController {
 	public @ResponseBody HomepageInfo checkUser() {
 		return homeService.getInfo();
 	}
+	
+	@RequestMapping( value="/getMenusBar", method = RequestMethod.POST, produces = "application/json")
+	public @ResponseBody menusBar getMenusBar() {
+		System.out.println(homeService.getMenusBar());
+		return homeService.getMenusBar();
+	}
+	
+	
 	
 	@RequestMapping(value = "/teamIntroduce")
 	public String teamIntroduce() {

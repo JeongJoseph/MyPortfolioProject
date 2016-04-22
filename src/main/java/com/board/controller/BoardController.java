@@ -60,5 +60,11 @@ public class BoardController {
 	public @ResponseBody void boardDelete(@RequestBody Board board) {
 		boardService.deleteBoard(board);
 	}
+	@RequestMapping( value="/getBoardSize", method = RequestMethod.POST, produces = "application/json")
+	public @ResponseBody int getBoardSize() {
+		return boardService.getBoardSize();
+	}
+	
+	
 	
 }

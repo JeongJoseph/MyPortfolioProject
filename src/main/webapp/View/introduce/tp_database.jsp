@@ -2,13 +2,13 @@
 	pageEncoding="UTF-8"%>
 <div ng-init="tebInit()">
 	<md-tabs md-selected="selectedIndex" md-autoselect layout-margin style="min-height:600px" >
-		<md-tab ng-repeat="tab in DBtabs" label="{{tab.title}}" layout-margin >
+		<md-tab ng-repeat="tab in mainTabVars.dbTabs | orderBy:'no'" label="{{tab.name}}" layout-margin >
 			<div layout="row" layout-align="space-between center">
 				<md-button style="height:500px;" ng-click="privPage()"> 
 					<img src="${pageContext.request.contextPath}/resources/app/icon/ic_navigate_before_black_48dp_2x.png"> 
 				</md-button>
 				<img style="margin: auto;width:900px;height:500px;" 
-					src="${pageContext.request.contextPath}/resources/app/img/{{tab.img}}">
+					src="${pageContext.request.contextPath}/resources/app/img/{{tab.link}}">
 				<md-button style="height:500px; "ng-click="nextPage()"> 
 					<img src="${pageContext.request.contextPath}/resources/app/icon/ic_navigate_next_black_48dp_2x.png"> 
 				</md-button>

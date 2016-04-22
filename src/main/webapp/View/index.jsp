@@ -46,7 +46,7 @@
 		    
 				<md-toolbar id="toolbarMain">
 					<div layout="row"  layout-align="none center">
-						<div ng-repeat="menu in menus | orderBy:'idx'" ng-click="movePage(menu.link)">
+						<div ng-repeat="menu in mainTabVars.main | orderBy:'no'" ng-click="movePage(menu.link)">
 						  <md-button md-no-ink>{{ menu.name }}</md-button>
 					    </div>
 						<div>
@@ -55,7 +55,7 @@
 									Part Introduce
 								</md-button>
 								<md-menu-content width="3">
-									<md-menu-item ng-repeat="item in teamProjectIndividualMenu">
+									<md-menu-item ng-repeat="item in mainTabVars.teamProjectIndividualMenu | orderBy:'no'">
 										<md-button ng-click="movePage(item.link)">
 										{{item.name}}
 										</md-button>
@@ -73,16 +73,10 @@
 					<div ng-view></div>
 				</md-card>
 				
-				
 <!-- 				 <md-button ng-click="boardDelete()">boardDelete</md-button> -->
 <!-- 				 <md-button ng-click="boardInsert()">boardInsert</md-button> -->
 <!-- 				 <md-button ng-click="getBoardList(2,3)">getBoardList</md-button> -->
 <!-- 				 <md-button ng-click="getBoardDetail()">getBoardDetail</md-button> -->
-				 
-				 
-					
-					
-					
 				 
 				<md-content layout="column" layout-align="center center" flex layout-padding class="md-caption" >
 				    <div> 주소 : {{HomepInfo.address}}  지점 :{{HomepInfo.branch}}</div>
@@ -94,3 +88,4 @@
 	</div>
 </body>
 </html>
+

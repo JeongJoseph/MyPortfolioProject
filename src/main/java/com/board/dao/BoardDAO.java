@@ -9,4 +9,6 @@ public interface BoardDAO {
 	public abstract Board getBoardDetail(int boardId);
 	public abstract void insertBoard(Board board);
 	public abstract void deleteBoard (Board board);
+	public abstract int getBoardSize ();
+	
 }

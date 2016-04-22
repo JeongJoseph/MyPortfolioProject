@@ -15,8 +15,8 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
+import com.google.appengine.api.datastore.Query.SortDirection;
 import com.datastore.service.DatastoreServiceFactoryInterface;
-import com.user.dao.User;
 
 @Repository
 public class BoardDAODatastore implements BoardDAO{
@@ -27,15 +27,26 @@ public class BoardDAODatastore implements BoardDAO{
     public BoardDAODatastore(DatastoreServiceFactoryInterface datastoreServiceFactory){
         this.datastoreService = datastoreServiceFactory.getDatastoreService();
     }
-    
+	public PreparedQuery getBoardQuery(){ 
+//		DESCENDING ASCENDING
+		Query q = new Query("Board").addSort("id", SortDirection.DESCENDING);
+		return datastoreService.prepare(q);
+	}
+	
+	public int getBoardSize(){
+		Query q = new Query("Board");
+		PreparedQuery pq = datastoreService.prepare(q);
+		return pq.countEntities();
+	}
+	
     @Override
 //    public List<Board> getBoardList(ListNum lNum){
 	public List<Board> getBoardList(int page){
-    	Query q = new Query("Board");
-		PreparedQuery pq = datastoreService.prepare(q);
-		int listSize = pq.countEntities();
+    	
+		PreparedQuery pq = getBoardQuery();
+		int listSize = getBoardSize();
 		int startNum = page * 10 - 10;
-    	int endNum = page * 10 - 1;
+    	int endNum = page * 10 ;
 
 		if (listSize <= startNum) {
 			return null;
@@ -66,11 +77,9 @@ public class BoardDAODatastore implements BoardDAO{
     
     @Override
     public void insertBoard (Board board) {
-    	Query q = new Query("Board");
-		PreparedQuery pq = datastoreService.prepare(q);
-		int listSize = pq.countEntities() + 1;
+		PreparedQuery pq = getBoardQuery(); 
+		int listSize = getBoardSize() + 1;
 		
-    	System.out.println(board);
     	board.setWriteDate(new Date(System.currentTimeMillis()));
     	board.setUpdateDate(new Date(System.currentTimeMillis()));
     	board.setId(listSize);

@@ -3,16 +3,16 @@
 <div ng-init="getBoardList()">
 
 	<md-list> 
+		
 		<md-subheader class="md-no-sticky">
-		Board</md-subheader>
-		<md-list-item>
 			<div flex class="md-list-item-text" layout="row">
 				<div flex="5">No</div>
 				<div flex="50">Title</div>
 				<div flex="20">Write Date</div>
 				<div flex="20">Writer</div>
-			</div> 
-		</md-list-item>
+			</div>
+		</md-subheader>
+		
 		<md-list-item  ng-repeat="item in board" ng-click="boardDetailPage(item.id)">
 			<!-- <div class="md-list-item-text" layout="column" ng-click="boardDetailPage(item.id)"> -->
 			<div flex class="md-list-item-text" layout="row" >
@@ -28,8 +28,19 @@
 <!-- 			</div> -->
 		<md-divider></md-divider>	
 		</md-list-item> 
-		
 	</md-list>
+	
+	
+	
+		<div layout="row" layout-align="center center">
+			<div layout="row" layout-align="center center"  ng-repeat="n in range()" >
+				<div > <md-button md-no-ink ng-click="boardListPage(n)">{{n}}</md-button> </div>
+				<div layout-margin ng-if="maxsizeCheck(n)" > | </div>
+			</div>
+		</div>
+			
+		
+
 	<div layout="row" layout-align="end center">
 		<md-button md-no-ink class="md-raised md-primary" ng-click="movePage('/boardInsert')">글쓰기</md-button>
 	</div>
