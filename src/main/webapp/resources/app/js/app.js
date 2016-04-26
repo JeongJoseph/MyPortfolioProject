@@ -1,5 +1,5 @@
 var myApp = 
-	angular.module('teamProject', [ 'ngMaterial', 'ngMessages', 'ngRoute', 'ngMdIcons', 'ngCookies' ])
+	angular.module('teamProject', [ 'ngMaterial', 'ngMessages', 'ngRoute', 'ngMdIcons', 'ngCookies','ngCkeditor' ])
 	.config( [ '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 		$routeProvider.when('/', {
 			templateUrl : 'main_introduce',
@@ -86,7 +86,7 @@ var myApp =
 		$scope.HomepInfo=null;
 		$scope.pageSize = 10;
 		$scope.maxSize = 1;
-
+		
 		
 		$scope.tebInit = function () {
 			var selectedIndex = $cookieStore.get('selectedIndex');

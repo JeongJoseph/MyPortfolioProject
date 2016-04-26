@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+	
+	 
+	
 <div ng-init="boarddetailinit()">
-<!-- <h2>{{boardDetail.title}}</h2>
-
-<p>{{boardDetail.detail}}</p>
-{{boardDetail}}
- -->
 	<md-input-container class="md-block" flex-gt-sm>
 		<label>제목</label>
 		<input ng-model="boardDetail.title">
 	</md-input-container>
-  
+  	
+  	
+  	
+  	
 	<md-input-container class="md-block">
-		<label>내용</label>
-		<textarea ng-model="boardDetail.detail" md-maxlength="800"></textarea>
+<!-- 		<label>내용</label> -->
+		<textarea ckeditor="editorOptions" ng-model="boardDetail.detail" md-maxlength="800"></textarea>
 	</md-input-container>
 	
 	<md-input-container class="md-block">

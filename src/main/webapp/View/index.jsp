@@ -10,6 +10,8 @@
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-messages.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-cookies.js"></script>
+	<script src="//cdn.ckeditor.com/4.5.8/standard/ckeditor.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/app/js/ng-ckeditor.min.js"></script>
 	
 	<script src="//ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/app/js/app.js"></script>
