@@ -9,7 +9,7 @@
 		<A HREF="www.mybatis.org" target="_blank">Mybatis</A>
 	</p>
 	<p>GitHub Page : <A HREF="https://github.com/JeongJoseph/MyPortfolioProject" target="_blank">https://github.com/JeongJoseph/MyPortfolioProject</A></p>
-	<p>Site Page : <A HREF="http://myportfolioproject-1281.appspot.com/" target="_blank">http://myportfolioproject-1281.appspot.com/</A></p>	
+	<p>Site Page : <A HREF="https://myportfolioproject-1281.appspot.com/" target="_blank">https://myportfolioproject-1281.appspot.com/</A></p>	
 </ul>                        
 
 	
