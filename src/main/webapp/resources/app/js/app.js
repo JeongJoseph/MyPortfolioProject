@@ -5,75 +5,54 @@ var myApp =
 			templateUrl : 'main_introduce',
 			controller : 'IntroduceCtrl'
 		}).when('/index', {
-			templateUrl : 'index',
+			templateUrl : 'main_introduce',
 			controller : 'IntroduceCtrl'
-		}).when('/concept', {
-			templateUrl : 'concept',
-			controller : 'IntroduceCtrl'
+		}).when('/introduce', {
+			templateUrl : 'concept'
 		}).when('/teamIntroduce', {
-			templateUrl : 'teamIntroduce',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'teamIntroduce'
 		}).when('/teamProjectOverview', {
-			templateUrl : 'teamProjectOverview',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'teamProjectOverview'
 		}).when('/tp_network', {
-			templateUrl : 'tp_network',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'tp_network'
 		}).when('/tp_server', {
-			templateUrl : 'tp_server',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'tp_server'
 		}).when('/tp_database', {
-			templateUrl : 'tp_database',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'tp_database'
 		}).when('/tp_web', {
-			templateUrl : 'tp_web',
-			controller : 'IntroduceCtrl',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'tp_web'
 		}).when('/signIn', {
-			templateUrl : 'signIn',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'signIn'
 		}).when('/signUp', {
-			templateUrl : 'signUp',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'signUp'
 		}).when('/signOut', {
-			templateUrl : 'signOut',
-			controller : 'IntroduceCtrl'
-		}).when('/welcome', {
-			templateUrl : 'welcome',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'signOut'
+//		}).when('/welcome', {
+//			templateUrl : 'welcome',
+//			controller : 'IntroduceCtrl'
 		}).when('/boardList', {
-			templateUrl : 'boardList',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'boardList'
 		}).when('/boardInsert', {
-			templateUrl : 'boardInsert',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'boardInsert'
 		}).when('/boardUpdate', {
-			templateUrl : 'boardUpdate',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'boardUpdate'
 		}).when('/boardDelete', {
-			templateUrl : 'boardDelete',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'boardDelete'
 		}).when('/main_introduce', {
 			templateUrl : 'main_introduce',
 			controller : 'IntroduceCtrl'
 		}).when('/site_introduce', {
-			templateUrl : 'site_introduce',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'site_introduce'
 		}).when('/devloper_introduce', {
-			templateUrl : 'devloper_introduce',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'devloper_introduce'
 		}).when('/boardDetail', {
-			templateUrl : 'boardDetail',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'boardDetail'
 		}).when('/boardList/:boardId', {
-			templateUrl : 'boardDetail',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'boardDetail'
 		}).when('/getBoardSize', {
-			templateUrl : 'getBoardSize',
-			controller : 'IntroduceCtrl'
+			templateUrl : 'getBoardSize'
 		}).when('/boardList/:page', {
-		    templateUrl: 'boardList',
-		    controller: 'IntroduceCtrl'
+		    templateUrl: 'boardList'
 		})
 		.otherwise({
 			redirectTo : '/main_introduce'
@@ -82,12 +61,14 @@ var myApp =
 	.controller( 'IntroduceCtrl',[ '$scope', '$http', '$mdToast', 
 	                          '$location', '$mdSidenav', '$mdDialog','$cookieStore','$routeParams',
 	function($scope, $http, $mdToast, $location,$mdSidenav,$mdDialog, $cookieStore,$routeParams) {
-		
+//--------------------------변수 초기-------------------------------------------------------------		
 		$scope.HomepInfo=null;
 		$scope.pageSize = 10;
 		$scope.maxSize = 1;
 		
-		
+		$scope.editorOptions = {
+			uiColor: '#61DBF0'
+		};
 		$scope.tebInit = function () {
 			var selectedIndex = $cookieStore.get('selectedIndex');
 			if (selectedIndex !=0 && selectedIndex !=undefined 
@@ -123,17 +104,17 @@ var myApp =
 			return (conDate.getFullYear() + "-" + (conDate.getMonth() + 1) + "-" + conDate.getDate());
 		}
 		
-		$scope.range = function() {
-		    var input = [];
-		    for (var i = 1; i <= $scope.maxSize; i += 1) {
-		        input.push(i);
-		    }
-		    return input;
-		};
-		$scope.maxsizeCheck = function (n) {
-			var returnVar =n >=$scope.maxSize ? false : true;
-			return returnVar;
-		}
+//		$scope.range = function() {
+//		    var input = [];
+//		    for (var i = 1; i <= $scope.maxSize; i += 1) {
+//		        input.push(i);
+//		    }
+//		    return input;
+//		};
+//		$scope.maxsizeCheck = function (n) {
+//			var returnVar =n >=$scope.maxSize ? false : true;
+//			return returnVar;
+//		}
 		
 		$scope.init = function () {
 			var HomepageInfo = $cookieStore.get('HomepageInfo');
@@ -380,7 +361,7 @@ var myApp =
 			$scope.movePage('/boardList/'+n);
 		}
 		$scope.boardDetailPage = function (boardId) {
-			alert(boardId)
+			
 			$scope.movePage('/boardDetail/'+boardId);
 		}
 }]);

@@ -37,6 +37,7 @@ public class BoardController {
 	}
 	@RequestMapping(value = "/boardDetail")
 	public String boardDetail() {
+		System.out.println(3333);
 		return "board/detail";
 	}
 
