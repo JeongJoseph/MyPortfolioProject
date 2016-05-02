@@ -1,4 +1,4 @@
 # IntelliJ IDEA
 .idea
 jqtree-spring-mvc-gae-example.iml
-/target/
+/target/*
